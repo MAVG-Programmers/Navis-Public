@@ -16,16 +16,9 @@ public class BasicAI : MonoBehaviour
 
     float fireTimer;
 
-    AudioClips enemyAudio;
-
-    public AudioClip laserSound;
-    public AudioClip engineSound;
-
 	// Use this for initialization
 	void Start () 
     {
-        enemyAudio = GetComponent<AudioClips>();
-
         fireTimer = 0.0f;
 		target = GameObject.FindGameObjectWithTag("Player");
 
@@ -113,7 +106,7 @@ public class BasicAI : MonoBehaviour
 
         fireTimer = 0.0f;
 
-        enemyAudio.PlayClipOneShot(laserSound);
+        audio.Play();
     }
 }
 

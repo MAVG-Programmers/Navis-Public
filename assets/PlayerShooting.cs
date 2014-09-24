@@ -21,7 +21,7 @@ public class PlayerShooting : MonoBehaviour {
 
 		if (Input.GetKey (KeyCode.Space) && fireTimer > fireRate) 
 		{
-			GameObject bullet = (GameObject) Instantiate (Resources.Load ("Laser"), 
+			GameObject bullet = (GameObject) Instantiate (Resources.Load ("GLaser"), 
 			                                              transform.position + transform.up * positionOffset, 
 			                                              transform.rotation);		
 
@@ -29,7 +29,8 @@ public class PlayerShooting : MonoBehaviour {
 			bullet.rigidbody2D.drag = 0.0f;
 
 			fireTimer = 0.0f;
-		
+
+            audio.Play();
 		}
 	}
 }

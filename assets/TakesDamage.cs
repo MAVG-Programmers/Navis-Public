@@ -49,7 +49,7 @@ public class TakesDamage : MonoBehaviour {
 			float distance = 
 				(new Vector2(playerObj.transform.position.x, playerObj.transform.position.y) - pos).magnitude;
 
-			cameraObj.GetComponent<MainCamera>().Shake (2, distance);
+			//cameraObj.GetComponent<MainCamera>().Shake (2, distance);
 
 			Instantiate (Resources.Load ("Explosion"), pos, transform.rotation);
 		}
