@@ -1,0 +1,25 @@
+﻿using UnityEngine;
+using System.Collections;
+
+public class AudioClips : MonoBehaviour 
+{
+    
+
+	// Use this for initialization
+	void Start ()
+    {
+	
+	}
+	
+	// Update is called once per frame
+	void Update () 
+    {
+	
+	}
+
+    public void PlayClipOneShot(AudioClip clip)
+    {
+        audio.PlayOneShot(clip, 0.7f);
+    }
+       
+}

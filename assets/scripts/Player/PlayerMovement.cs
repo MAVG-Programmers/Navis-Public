@@ -3,23 +3,50 @@ using System.Collections;
 
 public class PlayerMovement : MonoBehaviour 
 {
+    //public float playerHorizontalSpeed = 4.0f;
+    //public float playerVerticalSpeed = 4.0f;
+    public float playerSpeed = 4.0f;
+    public float maxDistance = 50;
 
-    public float playerHorizontalSpeed = 4.0f;
-    public float playerVerticalSpeed = 4.0f;
-	public float maxDistance = 50;
-
-
-
-	void Start () 
-    {
-	}
-	
-
-	void FixedUpdate () 
+    void Start()
     {
 
-		float moveHorizontal = Input.GetAxis ("Horizontal");
-		float moveVertical = Input.GetAxis ("Vertical");
+    }
+
+
+    void FixedUpdate()
+    {
+
+        if (Input.GetKey(KeyCode.W))
+        {
+
+            rigidbody2D.AddForce(Vector2.up * playerSpeed);
+
+        }
+        else if (Input.GetKey(KeyCode.S))
+        {
+
+            rigidbody2D.AddForce(Vector2.up * playerSpeed * -1);
+
+        }
+
+        if (Input.GetKey(KeyCode.A))
+        {
+
+            rigidbody2D.AddForce(Vector2.right * playerSpeed * -1);
+
+        }
+        else if (Input.GetKey(KeyCode.D))
+        {
+
+            rigidbody2D.AddForce(Vector2.right * playerSpeed);
+
+        }
+
+        /*
+
+        float moveHorizontal = Input.GetAxis ("Horizontal");
+        float moveVertical = Input.GetAxis ("Vertical");
 
         if (Input.GetButton("Horizontal"))
         {
@@ -29,9 +56,12 @@ public class PlayerMovement : MonoBehaviour
         {
             rigidbody2D.AddRelativeForce(new Vector2(0, moveVertical * playerVerticalSpeed), ForceMode2D.Force);
         }
-		if (Input.GetButton("Fire2")){
-			rigidbody2D.AddForce(new Vector2((rigidbody2D.velocity.x)/-0.25f,(rigidbody2D.velocity.y)/-0.25f));
-		}
+        if (Input.GetButton("Fire2")){
+            rigidbody2D.AddForce(new Vector2((rigidbody2D.velocity.x)/-0.25f,(rigidbody2D.velocity.y)/-0.25f));
+        }
+
+        */
+
     }
 
     Vector3 mousePosition;
@@ -39,19 +69,30 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
         mousePosition = Input.mousePosition;
-		mousePosition = Camera.main.ScreenToWorldPoint (mousePosition);
+        mousePosition = Camera.main.ScreenToWorldPoint(mousePosition);
 
         Quaternion rot = Quaternion.LookRotation(transform.position - mousePosition, Vector3.forward);
         transform.rotation = rot;
         transform.eulerAngles = new Vector3(0, 0, transform.eulerAngles.z);
 
-		object[] objects = GameObject.FindObjectsOfType(typeof (GameObject));
-		
-		foreach (GameObject obj in objects) {
-			if((obj.transform.position - this.transform.position).magnitude > maxDistance)
-			{
-				Destroy (obj);
-			}
-		}
+
+        destroyObjects();
+
     }
+
+    void destroyObjects()
+    {
+
+        object[] objects = GameObject.FindObjectsOfType(typeof(GameObject));
+
+        foreach (GameObject obj in objects)
+        {
+            if ((obj.transform.position - this.transform.position).magnitude > maxDistance)
+            {
+                Destroy(obj);
+            }
+        }
+
+    }
+
 }
