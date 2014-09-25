@@ -22,14 +22,11 @@ public class Pause : MonoBehaviour
     {
 	    if(Input.GetKeyDown(KeyCode.Escape) && gameState == GameState.Play)
         {
-            Debug.Log(1);
             gameState = GameState.Paused;
-            Debug.Log(gameState);
             Time.timeScale = 0;            
         }
         else if (Input.GetKeyDown(KeyCode.Escape) && gameState == GameState.Paused)
         {
-            Debug.Log(2);
             gameState = GameState.Play;
             Time.timeScale = 1;
         }
