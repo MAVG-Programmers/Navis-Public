@@ -9,9 +9,9 @@ GameObject:
   m_Component:
   - 4: {fileID: 400000}
   - 212: {fileID: 21200000}
-  - 95: {fileID: 9500000}
   - 114: {fileID: 11400000}
   - 111: {fileID: 11100000}
+  - 95: {fileID: 9500000}
   m_Layer: 0
   m_Name: Explosion
   m_TagString: Untagged
@@ -70,7 +70,7 @@ Animator:
   m_GameObject: {fileID: 100000}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: f924609fcb7214a46b171be9b1a71a6d, type: 2}
+  m_Controller: {fileID: 9100000, guid: c295633994317ec4da69ce7318ac5b2b, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 1
