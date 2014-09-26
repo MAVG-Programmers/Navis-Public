@@ -3,7 +3,18 @@ using System.Collections;
 
 public class AudioPlayer : MonoBehaviour
 {
-    AudioClip clip { set; }
+    private AudioClip clip;
+    public AudioClip Clip 
+    { 
+        get
+        {
+            return clip;
+        }
+        set 
+        {
+            clip = value;
+        }
+    }
 
 	// Use this for initialization
 	void Start () 

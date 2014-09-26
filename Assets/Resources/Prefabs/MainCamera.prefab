@@ -89,7 +89,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 167c7ddbdb1a2084e9daac86d5475b98, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 400000, guid: b18dff6cdcea2754bb6e0c3b7047a07b, type: 2}
+  target: {fileID: 400002, guid: 6dc12563f7979814a8f77a5ecad1f552, type: 2}
   radiusScale: .150000006
   durationScale: .200000003
 --- !u!124 &12400000
