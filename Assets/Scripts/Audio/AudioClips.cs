@@ -21,5 +21,6 @@ public class AudioClips : MonoBehaviour
     {
         audio.PlayOneShot(clip, 0.7f);
     }
-       
+    
+   
 }
