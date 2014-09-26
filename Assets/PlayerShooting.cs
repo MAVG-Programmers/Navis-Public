@@ -12,19 +12,18 @@ public class PlayerShooting : MonoBehaviour {
     float laserTimer;
     float missileTimer;
 
-    AudioClips playerAudio;
-
     public AudioClip laserSound;
     public AudioClip engineSound;
 
 	// Use this for initialization
-	void Start () {
+	void Start () 
+    {
 		laserTimer = 0.0f;
-        playerAudio = GetComponent<AudioClips>();
 	}
 	
 
-	void Update () {
+	void Update ()
+    {
 
 		laserTimer += Time.deltaTime;
 
@@ -38,8 +37,6 @@ public class PlayerShooting : MonoBehaviour {
 			bullet.rigidbody2D.drag = 0.0f;
 
 			laserTimer = 0.0f;
-
-            playerAudio.PlayClipOneShot(laserSound);
 		}
 	}
 }
