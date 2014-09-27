@@ -8,9 +8,16 @@ public class PlayerMovement : MonoBehaviour
     public float playerSpeed = 4.0f;
     public float maxDistance = 50;
 
+    AudioPlayer player;
+
+    AudioSource source;
+
+    public AudioClip engineSound;
+
     void Start()
     {
-
+        player = gameObject.AddComponent<AudioPlayer>();
+        source = player.PlaySource(engineSound, false);
     }
 
 
@@ -19,49 +26,45 @@ public class PlayerMovement : MonoBehaviour
 
         if (Input.GetKey(KeyCode.W))
         {
-
+            PlayEngine();
             rigidbody2D.AddForce(Vector2.up * playerSpeed);
 
         }
         else if (Input.GetKey(KeyCode.S))
         {
-
+            PlayEngine();
             rigidbody2D.AddForce(Vector2.up * playerSpeed * -1);
 
         }
 
         if (Input.GetKey(KeyCode.A))
         {
-
+            PlayEngine();
             rigidbody2D.AddForce(Vector2.right * playerSpeed * -1);
 
         }
         else if (Input.GetKey(KeyCode.D))
         {
-
+            PlayEngine();
             rigidbody2D.AddForce(Vector2.right * playerSpeed);
 
         }
 
-        /*
+        Debug.Log(source.isPlaying);
 
-        float moveHorizontal = Input.GetAxis ("Horizontal");
-        float moveVertical = Input.GetAxis ("Vertical");
+        //if (Input.GetKeyUp(KeyCode.W) || Input.GetKeyUp(KeyCode.A) || Input.GetKeyUp(KeyCode.S) || Input.GetKeyUp(KeyCode.D) && source.isPlaying)
+        //{
+        //    source.Stop();
+        //}
+    }
 
-        if (Input.GetButton("Horizontal"))
+    void PlayEngine()
+    {
+        if (!source.isPlaying)
         {
-            rigidbody2D.AddRelativeForce(new Vector2(moveHorizontal * playerHorizontalSpeed, 0), ForceMode2D.Force);
+            source.Play();
         }
-        if (Input.GetButton("Vertical"))
-        {
-            rigidbody2D.AddRelativeForce(new Vector2(0, moveVertical * playerVerticalSpeed), ForceMode2D.Force);
-        }
-        if (Input.GetButton("Fire2")){
-            rigidbody2D.AddForce(new Vector2((rigidbody2D.velocity.x)/-0.25f,(rigidbody2D.velocity.y)/-0.25f));
-        }
-
-        */
-
+        
     }
 
     Vector3 mousePosition;

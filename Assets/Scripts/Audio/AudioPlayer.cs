@@ -3,16 +3,12 @@ using System.Collections;
 
 public class AudioPlayer : MonoBehaviour
 {
-    private AudioClip clip;
-    public AudioClip Clip 
-    { 
-        get
+    private float volume = 0.7f;
+    public float Volume
+    {
+        set
         {
-            return clip;
-        }
-        set 
-        {
-            clip = value;
+            volume = value;
         }
     }
 
@@ -27,4 +23,21 @@ public class AudioPlayer : MonoBehaviour
     {
 	
 	}
+
+    public void PlayClip(AudioClip clip)
+    {
+        audio.PlayOneShot(clip, volume);
+    }
+
+    public AudioSource PlaySource(AudioClip clip, bool loop)
+    {
+        AudioSource source = gameObject.AddComponent<AudioSource>();
+
+        source.volume = volume;
+        source.clip = clip;
+        source.loop = loop;
+        source.volume = volume;
+
+        return source;
+    }
 }
