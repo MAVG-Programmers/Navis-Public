@@ -242,7 +242,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerSpeed: 2
   maxDistance: 2000
-  engineSound: {fileID: 8300000, guid: fda0b6fbc28bdbc47b39a923d1f3b920, type: 3}
+  engineSound: {fileID: 8300000, guid: 8e39ba877dae00f4384c891f183f2d18, type: 3}
 --- !u!212 &21200000
 SpriteRenderer:
   m_ObjectHideFlags: 1

@@ -10,20 +10,22 @@ public class PlayerMovement : MonoBehaviour
 
     AudioPlayer player;
 
-    AudioSource source;
+    AudioSource engineSource;
 
     public AudioClip engineSound;
+
+    float volume;
 
     void Start()
     {
         player = gameObject.AddComponent<AudioPlayer>();
-        source = player.PlaySource(engineSound, false);
+        engineSource = player.PlaySource(engineSound, false);
+        volume = player.Volume;
     }
-
 
     void FixedUpdate()
     {
-
+        
         if (Input.GetKey(KeyCode.W))
         {
             PlayEngine();
@@ -49,22 +51,30 @@ public class PlayerMovement : MonoBehaviour
             rigidbody2D.AddForce(Vector2.right * playerSpeed);
 
         }
-
-        Debug.Log(source.isPlaying);
-
-        //if (Input.GetKeyUp(KeyCode.W) || Input.GetKeyUp(KeyCode.A) || Input.GetKeyUp(KeyCode.S) || Input.GetKeyUp(KeyCode.D) && source.isPlaying)
-        //{
-        //    source.Stop();
-        //}
     }
 
     void PlayEngine()
     {
-        if (!source.isPlaying)
+        if (!engineSource.isPlaying)
         {
-            source.Play();
+            engineSource.Play();
         }
-        
+        else
+        {
+            while(engineSource.volume < player.Volume)
+            {
+                engineSource.volume++;
+            }
+            
+        }
+    }
+
+    void StopEngine()
+    {
+        while (engineSource.volume > 0)
+        {
+            engineSource.volume--;
+        }
     }
 
     Vector3 mousePosition;
@@ -81,6 +91,10 @@ public class PlayerMovement : MonoBehaviour
 
         destroyObjects();
 
+        if (Input.GetKeyUp(KeyCode.W) || Input.GetKeyUp(KeyCode.A) || Input.GetKeyUp(KeyCode.S) || Input.GetKeyUp(KeyCode.D) && engineSource.isPlaying)
+        {
+            StopEngine();
+        }
     }
 
     void destroyObjects()

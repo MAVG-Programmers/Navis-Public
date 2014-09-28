@@ -10,6 +10,11 @@ public class AudioPlayer : MonoBehaviour
         {
             volume = value;
         }
+
+        get
+        {
+            return volume;
+        }
     }
 
 	// Use this for initialization
@@ -33,7 +38,7 @@ public class AudioPlayer : MonoBehaviour
     {
         AudioSource source = gameObject.AddComponent<AudioSource>();
 
-        source.volume = volume;
+        source.volume = volume*2;
         source.clip = clip;
         source.loop = loop;
         source.volume = volume;
