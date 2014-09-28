@@ -19,7 +19,7 @@ public class PlayerMovement : MonoBehaviour
     void Start()
     {
         player = gameObject.AddComponent<AudioPlayer>();
-        engineSource = player.PlaySource(engineSound, false);
+        engineSource = player.AddSource(engineSound, false);
         volume = player.Volume;
     }
 

@@ -17,24 +17,12 @@ public class AudioPlayer : MonoBehaviour
         }
     }
 
-	// Use this for initialization
-	void Start () 
-    {
-	
-	}
-	
-	// Update is called once per frame
-	void Update () 
-    {
-	
-	}
-
     public void PlayClip(AudioClip clip)
     {
         audio.PlayOneShot(clip, volume);
     }
 
-    public AudioSource PlaySource(AudioClip clip, bool loop)
+    public AudioSource AddSource(AudioClip clip, bool loop)
     {
         AudioSource source = gameObject.AddComponent<AudioSource>();
 
