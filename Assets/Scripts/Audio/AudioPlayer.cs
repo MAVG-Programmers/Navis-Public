@@ -45,4 +45,20 @@ public class AudioPlayer : MonoBehaviour
 
         return source;
     }
+
+    public void FadeOut(AudioSource source, float speed)
+    {
+        while (source.volume > 0)
+        {
+            source.volume -= speed;
+        }
+    }
+
+    public void FadeIn(AudioSource source, float speed)
+    {
+        while (source.volume < volume)
+        {
+            source.volume += speed;
+        }
+    }
 }

@@ -61,20 +61,13 @@ public class PlayerMovement : MonoBehaviour
         }
         else
         {
-            while(engineSource.volume < player.Volume)
-            {
-                engineSource.volume++;
-            }
-            
+            player.FadeIn(engineSource, 1);   
         }
     }
 
     void StopEngine()
     {
-        while (engineSource.volume > 0)
-        {
-            engineSource.volume--;
-        }
+        player.FadeOut(engineSource, 1);
     }
 
     Vector3 mousePosition;
