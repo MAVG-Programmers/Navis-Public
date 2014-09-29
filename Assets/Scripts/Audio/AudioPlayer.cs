@@ -62,9 +62,4 @@ public class AudioPlayer : MonoBehaviour
             }
         }
     }
-
-    void Update()
-    {
-
-    }
 }

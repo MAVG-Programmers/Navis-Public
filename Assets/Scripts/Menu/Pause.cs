@@ -31,5 +31,10 @@ public class Pause : MonoBehaviour
             Time.timeScale = 1;
         }
 
+        if (Input.GetKeyDown(KeyCode.DownArrow))
+        {
+            Time.timeScale = .2f;
+        }
+
 	}
 }
