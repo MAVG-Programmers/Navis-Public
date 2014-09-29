@@ -14,13 +14,10 @@ public class PlayerMovement : MonoBehaviour
 
     public AudioClip engineSound;
 
-    float volume;
-
     void Start()
     {
         player = gameObject.AddComponent<AudioPlayer>();
         engineSource = player.AddSource(engineSound, false);
-        volume = player.Volume;
     }
 
     void FixedUpdate()
