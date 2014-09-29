@@ -26,7 +26,6 @@ public class AudioPlayer : MonoBehaviour
     {
         AudioSource source = gameObject.AddComponent<AudioSource>();
 
-        source.volume = volume*2;
         source.clip = clip;
         source.loop = loop;
         source.volume = volume;
@@ -36,17 +35,36 @@ public class AudioPlayer : MonoBehaviour
 
     public void FadeOut(AudioSource source, float speed)
     {
-        while (source.volume > 0)
-        {
-            source.volume -= speed;
-        }
+        StartCoroutine(FadeSource(source, speed, true));
     }
 
     public void FadeIn(AudioSource source, float speed)
     {
-        while (source.volume < volume)
+        StartCoroutine(FadeSource(source, speed, false));
+    }
+
+    IEnumerator FadeSource(AudioSource source, float speed, bool fadeOut)
+    {
+        if (fadeOut)
         {
-            source.volume += speed;
+            while (source.volume > 0)
+            {
+                source.volume -= Time.deltaTime;                
+                yield return new WaitForSeconds(speed);
+            }
         }
+        if (!fadeOut)
+        {
+            while (source.volume < volume)
+            {
+                source.volume += Time.deltaTime;
+                yield return new WaitForSeconds(speed);
+            }
+        }
+    }
+
+    void Update()
+    {
+
     }
 }
