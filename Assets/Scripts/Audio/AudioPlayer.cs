@@ -3,7 +3,7 @@ using System.Collections;
 
 public class AudioPlayer : MonoBehaviour
 {
-    private float volume = 0.7f;
+    private float volume = .7f;
     public float Volume
     {
         set
@@ -49,7 +49,7 @@ public class AudioPlayer : MonoBehaviour
         {
             while (source.volume > 0)
             {
-                source.volume -= Time.deltaTime;                
+                source.volume -= volume / 2;                
                 yield return new WaitForSeconds(speed);
             }
         }
@@ -57,7 +57,7 @@ public class AudioPlayer : MonoBehaviour
         {
             while (source.volume < volume)
             {
-                source.volume += Time.deltaTime;
+                source.volume += volume / 2;
                 yield return new WaitForSeconds(speed);
             }
         }
