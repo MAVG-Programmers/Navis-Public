@@ -58,13 +58,13 @@ public class PlayerMovement : MonoBehaviour
         }
         else
         {
-            player.FadeIn(engineSource, .0001f);   
+            player.FadeIn(engineSource, .0006f);   
         }
     }
 
     void StopEngine()
     {
-        player.FadeOut(engineSource, .0001f);
+        player.FadeOut(engineSource, .0006f);
     }
 
     Vector3 mousePosition;
