@@ -3,8 +3,8 @@ using System.Collections;
 
 public class PlayerShooting : MonoBehaviour {
 
-    public float cannonFireRate = 1.5f;
-    public float missileFireRate = 5f;
+    public float laserFireRate = 1.5f;
+    public float missileFireRate = 2f;
     public float positionOffset = 1.0f;
     public float bulletSpeed = 10.0f;
     public float missileSpeed = 10.0f;
@@ -30,7 +30,7 @@ public class PlayerShooting : MonoBehaviour {
 
 		laserTimer += Time.deltaTime;
 
-		if (Input.GetKey (KeyCode.Space) && laserTimer > cannonFireRate) 
+		if (Input.GetKey (KeyCode.Space) && laserTimer > laserFireRate) 
 		{
 			GameObject bullet = (GameObject) Instantiate (Resources.Load ("GLaser"), 
 			                                              transform.position + transform.up * positionOffset, 
@@ -43,5 +43,19 @@ public class PlayerShooting : MonoBehaviour {
 
 			laserTimer = 0.0f;
 		}
+
+        missileTimer += Time.deltaTime;
+
+        if (Input.GetKey(KeyCode.M) && missileTimer > missileFireRate)
+        {
+            GameObject missile = (GameObject)Instantiate(Resources.Load("HomingMissle"),
+                                                          transform.position + transform.up * positionOffset,
+                                                          transform.rotation);
+
+            missile.rigidbody2D.velocity = missileSpeed * transform.up;
+            missile.rigidbody2D.drag = 0.0f; 
+
+            missileTimer = 0.0f;
+        }
 	}
 }
