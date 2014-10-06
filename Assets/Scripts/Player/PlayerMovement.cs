@@ -3,8 +3,7 @@ using System.Collections;
 
 public class PlayerMovement : MonoBehaviour
 {
-    //public float playerHorizontalSpeed = 4.0f;
-    //public float playerVerticalSpeed = 4.0f;
+
     public float playerSpeed = 4.0f;
     public float maxDistance = 50;
 
