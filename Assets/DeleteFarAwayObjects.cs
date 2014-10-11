@@ -3,7 +3,6 @@ using System.Collections;
 
 public class DeleteFarAwayObjects : MonoBehaviour {
 
-	public GameObject player;
 	public float maxDistance = 50;
 
 	// Use this for initialization
@@ -16,7 +15,7 @@ public class DeleteFarAwayObjects : MonoBehaviour {
 		object[] objects = GameObject.FindObjectsOfType(typeof (GameObject));
 
 		foreach (GameObject obj in objects) {
-			if((obj.transform.position - player.transform.position).magnitude > maxDistance)
+			if((obj.transform.position - gameObject.transform.position).magnitude > maxDistance && obj.tag != "Background")
 			{
 				Destroy (obj);
 			}

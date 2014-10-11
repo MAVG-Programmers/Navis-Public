@@ -77,28 +77,25 @@ public class PlayerMovement : MonoBehaviour
         transform.rotation = rot;
         transform.eulerAngles = new Vector3(0, 0, transform.eulerAngles.z);
 
-
-        destroyObjects();
-
         if (Input.GetKeyUp(KeyCode.W) || Input.GetKeyUp(KeyCode.A) || Input.GetKeyUp(KeyCode.S) || Input.GetKeyUp(KeyCode.D) && engineSource.isPlaying)
         {
             StopEngine();
         }
     }
 
-    void destroyObjects()
-    {
+    //void destroyObjects()
+    //{
 
-        object[] objects = GameObject.FindObjectsOfType(typeof(GameObject));
+    //    object[] objects = GameObject.FindObjectsOfType(typeof(GameObject));
 
-        foreach (GameObject obj in objects)
-        {
-            if ((obj.transform.position - this.transform.position).magnitude > maxDistance)
-            {
-                Destroy(obj);
-            }
-        }
+    //    foreach (GameObject obj in objects)
+    //    {
+    //        if ((obj.transform.position - this.transform.position).magnitude > maxDistance)
+    //        {
+    //            Destroy(obj);
+    //        }
+    //    }
 
-    }
+    //}
 
 }
