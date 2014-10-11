@@ -187,5 +187,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   backgrounds:
   - {fileID: 100000, guid: 506fd0cd4827d7f459bbf2e99dd9f49a, type: 2}
+  - {fileID: 100000, guid: 506fd0cd4827d7f459bbf2e99dd9f49a, type: 2}
+  - {fileID: 100000, guid: 506fd0cd4827d7f459bbf2e99dd9f49a, type: 2}
+  - {fileID: 100000, guid: e0a97ec76dd835741911c82b5b6e2c87, type: 2}
+  - {fileID: 100000, guid: e0a97ec76dd835741911c82b5b6e2c87, type: 2}
+  - {fileID: 100000, guid: e0a97ec76dd835741911c82b5b6e2c87, type: 2}
   rows: 9
   columns: 9
